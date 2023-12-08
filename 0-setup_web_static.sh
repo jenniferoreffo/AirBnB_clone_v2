@@ -11,7 +11,7 @@ sudo mkdir -p /data/web_static/releases/test/index.html
 sudo mkdir -p /data/web_static/shared/
 
 # echo message stored in index.html
-echo "<h1>welcome to www.skydar.tech</h1>" > /data/web_static/releases/test/index.html
+echo "<h1>welcome to www.jenniferoreffo.tech</h1>" > /data/web_static/releases/test/index.html
 
 # prevent overwrite
 if [ -d "/data/web_static/current" ];
