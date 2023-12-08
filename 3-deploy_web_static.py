@@ -5,7 +5,7 @@ import os.path
 from datetime import datetime
 from fabric.api import env, local, put, run
 
-env.hosts = ['100.24.236.170', '54.196.28.207']
+env.hosts = ['35.175.104.35', '100.24.236.170']
         
 def do_pack():
     """Create a tar gzipped archive of the directory web_static."""

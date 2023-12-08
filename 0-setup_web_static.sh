@@ -16,8 +16,8 @@ echo "<h1>welcome to www.jenniferoreffo.tech</h1>" > /data/web_static/releases/t
 # prevent overwrite
 if [ -d "/data/web_static/current" ];
 then
-	echo "path /data/web_static/current exists"
-	sudo rm -rf /data/web_static/current;
+        echo "path /data/web_static/current exists"
+        sudo rm -rf /data/web_static/current;
 # create symbolic link
 sudo ln -s -f /data/web_static/releases/test/ /data/web_static/current
 sudo chown -hR $ubuntu:$ubuntu /data/
