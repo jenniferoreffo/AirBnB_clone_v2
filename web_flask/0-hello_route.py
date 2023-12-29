@@ -6,7 +6,7 @@ A script that starts flask web app
 from flask import Flask
 app= Flask(__name__)
 
-@app.route('/airbnb-onepage/', strict_slashes=False)
+@app.route('/', strict_slashes=False)
 def hello():
     """Starts basic Flash web application"""
     return 'Hello HBNB!'
