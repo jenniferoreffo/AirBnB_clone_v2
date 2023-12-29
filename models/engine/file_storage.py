@@ -20,6 +20,7 @@ class FileStorage:
                     'Review': Review
                   }
 
+
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
         if cls:
@@ -62,3 +63,6 @@ class FileStorage:
             del self.__objects["{}.{}".format(type(obj).__name__, obj.id)]
         else:
             pass
+    def close(self):
+        """Call the close method"""
+        self.reload()
