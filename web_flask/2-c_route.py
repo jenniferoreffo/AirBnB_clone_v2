@@ -8,18 +8,19 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/', strict_slashes=False)
-def hello():
+@app.route('/')
+def hello_hbnb():
     """Starts basic Flash web application"""
     return 'Hello HBNB!'
-@app.route('/hbnb', strict_slashes=False)
-def hbnb():
+@app.route('/hbnb')
+def display_hbnb():
     """Add specific route /hbnb"""
     return 'HBNB!'
-@app.route('/c/<string:text>', strict_slashes=False)
-def hello():
+@app.route('/c/<text>', strict_slashes=False)
+def display_c_text():
+    modified_text = text.display('_', ' ')
     """Display c followed by the value of text, replace "_" with " "  """
-    return "c{}".format(text.replace('_',''))
+    return f'C {modified_text}'
 
 
 if __name__ == '__main__':
