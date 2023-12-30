@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>States List</title>
+</head>
+<body>
+	<h1>States</h1>
+	</ul>
+	    {% for state in sorted_states %}
+	        <li>{{ state.id }}: <b>{{ state.name }}</b></li>
+	</ul>
+	    {% if getattr(state, 'cities', None) %}
+	      {% for city in state.cities %}
+	         <li>{{ city.id }}:<b>{{ city.name }}</b></li>
+		  {% endif %}
+
+</body>
+</html>
+
+
