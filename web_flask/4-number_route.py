@@ -4,33 +4,32 @@
 
 """ A script to start a flask application """
 
-from flask import Flask
+from flask import Flask, render_template_string
 
 app = Flask(__name__)
 
-@app.route('/', strict_slashes=False)
-def hello():
+@app.route('/')
+def hello_hbnb():
     """Starts basic Flash web application"""
     return 'Hello HBNB!'
-@app.route('/hbnb', strict_slashes=False)
-def hbnb():
+@app.route('/hbnb')
+def display_hbnb():
     """Add specific route /hbnb"""
     return 'HBNB!'
-@app.route('/c/<string:text>', strict_slashes=False)
-def hello():
-    """Display c followed by the value of text, replace "_" with " "  """
-    return "c{}".format(text.replace('_',' '))
-    
-@app.route('/python/', strict_slashes=False)
-@app.route('/python/<string:text>', strict_slashes=False)
-def python_text(text='is_cool'):
-    """inputed text, replace "_" with " " """
-    return "python {}".format(text.replace('_',' '))
+@app.route('/c/<text>', strict_slashes=False)
+def show_c(text):
+    text = text.replace('_', ' ')
+    return f'C {text}'
 
-@app.route('/number/<int:n>', strict_slashes=False)
-def number(n=None):
-    """Dynamic inputed interger"""
-    return "%d is a number" % n
+@app.route('/python/', defaults={'text': 'is_cool'}, strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
+def show_python(text):
+    text = text.replace('_', ' ')
+    return f'Python {text}'
+@app.route('/number/<int:n>')
+def show_number(n):
+    return f'{n} is a number'
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 
