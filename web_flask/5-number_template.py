@@ -27,6 +27,11 @@ def python_text(text):
 
 @app.route('/number/<int:n>')
 def number(n):
+     if isinstance(n, int):
+         return f'{n} is a number'
+
+@app.route('/number_template/<int:n>')
+def number_template(n):
     if isinstance(n, int):
         return render_template('number_template.html', n=n)
 
