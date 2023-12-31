@@ -3,7 +3,7 @@
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
-import models
+import models import models
 from models.city import City
 from os import getenv
 
@@ -18,9 +18,9 @@ class State(BaseModel, Base):
     def cities(self):
         if getenv("HBNB_TYPE_STORAGE") != "db":
             """This is used to return associated cities with current state"""
-            files = list(models.storage.all(City).values())
-            sameList = []
-            for attr in files:
-                if attr.state_id == self.id:
-                    sameList.append(attr)
-            return attr
+            cities_list = []
+            all_cities = storage.all(City)
+            for city in all_cities.values():
+                if city.state_id == self.id:
+                    cities_list.append(city)
+            return cities_list

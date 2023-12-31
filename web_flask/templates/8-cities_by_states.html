@@ -9,12 +9,20 @@
 	</ul>
 	    {% for state in sorted_states %}
 	        <li>{{ state.id }}: <b>{{ state.name }}</b></li>
-	</ul>
-	    {% if getattr(state, 'cities', None) %}
-	      {% for city in state.cities %}
-	         <li>{{ city.id }}:<b>{{ city.name }}</b></li>
-		  {% endif %}
-
+		</ul>
+		    {% if getattr(state, 'cities', None) %}
+		      {% for city in state.cities %}
+		        <li>{{ city.id }}:<b>{{ city.name }}</b></li>
+		      {% endfor %}
+		    {% else %}
+		      {% for city in state.cities() %}
+		          <li>{{ city.id }}:<b>{{ city.name }}</b></li>
+		      {% endfor %}	
+		    {% endif %}
+		</ul>
+		 </li>
+	     {% endfor %}
+	 </ul>	
 </body>
 </html>
 
