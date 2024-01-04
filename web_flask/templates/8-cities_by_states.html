@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>States List</title>
+	<title>HBNB</title>
 </head>
 <body>
 	<h1>States</h1>
@@ -10,18 +10,12 @@
 	    {% for state in sorted_states %}
 	        <li>{{ state.id }}: <b>{{ state.name }}</b></li>
 		</ul>
-		    {% if getattr(state, 'cities', None) %}
-		      {% for city in state.cities %}
-		        <li>{{ city.id }}:<b>{{ city.name }}</b></li>
-		      {% endfor %}
-		    {% else %}
-		      {% for city in state.cities() %}
-		          <li>{{ city.id }}:<b>{{ city.name }}</b></li>
-		      {% endfor %}	
-		    {% endif %}
+		{% for city in state.cities %}
+		    <li>{{ city.id }}:<b>{{ city.name }}</b></li>
+		{% endfor %}
 		</ul>
-		 </li>
-	     {% endfor %}
+		</li>
+	    {% endfor %}
 	 </ul>	
 </body>
 </html>
