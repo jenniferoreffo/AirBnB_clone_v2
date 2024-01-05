@@ -7,10 +7,14 @@ from time import strftime
 
 
 def do_pack():
-   '''generates archive a .tgz archie'''
-    local("mkdir -p versions")
-    path = ("versions/web_static_{}.tgz".format(datetime.strftime(datetime.now(), "%Y%m%d%H%M%S")))
-    output = local("tar -cvzf {} web_static".format(path))
-    if output.failed:
+    """generates a tgz archive"""
+    try:
+        date = datetime.now().strftime("%Y%m%d%H%M%S")
+        if isdir("versions") is False:
+            local("mkdir versions")
+        file_name = "versions/web_static_{}.tgz".format(date)
+        local("tar -cvzf {} web_static".format(file_name))
+        return file_name
+    except:
         return None
-        return path
+       
